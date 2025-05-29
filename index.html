@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube - Rediseñado</title>
+    <title>Farmacia Nieto - Tu camino hacia el bienestar</title>
     <style>
         * {
             margin: 0;
@@ -13,23 +13,22 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            color: #ffffff;
+            line-height: 1.6;
+            color: #333;
             overflow-x: hidden;
         }
 
-        /* Header */
         .header {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 70px;
-            background: rgba(0, 0, 0, 0.95);
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(134, 164, 134, 0.2);
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 5%;
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -39,10 +38,7 @@
             align-items: center;
             font-size: 28px;
             font-weight: 800;
-            background: linear-gradient(45deg, #ff0066, #ff6b35, #f7931e);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #86a486;
             margin-right: 40px;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -52,139 +48,59 @@
             transform: scale(1.05);
         }
 
-        .search-container {
-            flex: 1;
-            max-width: 600px;
-            margin: 0 40px;
-            position: relative;
+        .logo::before {
+            content: "🏥";
+            margin-right: 10px;
+            font-size: 32px;
         }
 
-        .search-bar {
-            width: 100%;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 25px;
-            padding: 0 20px 0 50px;
-            font-size: 16px;
-            color: white;
-            outline: none;
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin-left: auto;
+        }
+
+        .nav-item {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 15px;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
 
-        .search-bar:focus {
-            background: rgba(255, 255, 255, 0.12);
-            border-color: #ff0066;
-            box-shadow: 0 0 0 3px rgba(255, 0, 102, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .user-actions {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .action-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            border-radius: 12px;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .nav-item:hover {
+            background: rgba(134, 164, 134, 0.1);
+            color: #86a486;
             transform: translateY(-2px);
         }
 
-        /* Main Content */
-        .main-container {
-            margin-top: 70px;
-            display: flex;
-            min-height: calc(100vh - 70px);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            padding: 30px 0;
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            position: fixed;
-            height: calc(100vh - 70px);
-            overflow-y: auto;
-        }
-
-        .sidebar-section {
-            margin-bottom: 30px;
-            padding: 0 24px;
-        }
-
-        .sidebar-title {
-            font-size: 14px;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .sidebar-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            color: rgba(255, 255, 255, 0.8);
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-item:hover {
+        .contact-btn {
+            background: linear-gradient(135deg, #86a486, #9bb49b);
             color: white;
-            background: rgba(255, 255, 255, 0.05);
-            transform: translateX(5px);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(134, 164, 134, 0.3);
         }
 
-        .sidebar-item.active {
-            color: #ff0066;
-            background: rgba(255, 0, 102, 0.1);
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(134, 164, 134, 0.4);
         }
 
-        .sidebar-icon {
-            margin-right: 15px;
-            width: 20px;
-        }
-
-        /* Content Area */
-        .content {
-            margin-left: 280px;
-            flex: 1;
-            padding: 30px;
-        }
-
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(255, 0, 102, 0.2) 0%, rgba(255, 107, 53, 0.2) 100%);
-            border-radius: 20px;
-            padding: 60px;
-            margin-bottom: 40px;
-            text-align: center;
+            background: linear-gradient(135deg, #f8fcf8 0%, #e8f4e8 100%);
+            padding: 120px 5% 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            min-height: 100vh;
             position: relative;
             overflow: hidden;
         }
@@ -193,182 +109,503 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
+            width: 300px;
+            height: 300px;
+            background: rgba(134, 164, 134, 0.1);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
+        .hero-content h1 {
             font-size: 48px;
             font-weight: 900;
+            color: #2d4a2d;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, #ffffff, #ff0066);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
+        .hero-subtitle {
+            font-size: 24px;
+            color: #86a486;
             margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .cta-button {
-            background: linear-gradient(45deg, #ff0066, #ff6b35);
+        .hero-description {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #86a486, #9bb49b);
             color: white;
-            padding: 15px 40px;
+            padding: 15px 30px;
             border: none;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 0, 102, 0.3);
+            box-shadow: 0 10px 30px rgba(134, 164, 134, 0.3);
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .cta-button:hover {
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 0, 102, 0.4);
+            box-shadow: 0 15px 40px rgba(134, 164, 134, 0.4);
         }
 
-        /* Videos Grid */
-        .section-title {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            color: white;
-        }
-
-        .videos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .video-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .btn-secondary {
+            background: transparent;
+            color: #86a486;
+            padding: 15px 30px;
+            border: 2px solid #86a486;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
-        .video-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.08);
+        .btn-secondary:hover {
+            background: #86a486;
+            color: white;
+            transform: translateY(-3px);
         }
 
-        .video-thumbnail {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #ff0066, #ff6b35, #f7931e);
-            position: relative;
+        .hero-image {
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
         }
 
-        .play-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.9);
+        .pharmacist-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 25px 60px rgba(134, 164, 134, 0.15);
+            text-align: center;
+            max-width: 420px;
+            transform: rotate(-2deg);
+            transition: all 0.4s ease;
+            border: 2px solid rgba(134, 164, 134, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pharmacist-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #86a486, #9bb49b, #86a486);
+        }
+
+        .pharmacist-card:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 30px 80px rgba(134, 164, 134, 0.25);
+        }
+
+        .pharmacist-photo {
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(135deg, #f8f8f8, #ffffff);
+            border-radius: 20px;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 4px solid #86a486;
+            position: relative;
+        }
+
+        .pharmacist-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .pharmacist-info {
+            margin-top: 10px;
+        }
+
+        .pharmacist-info h3 {
+            color: #2d4a2d;
+            font-size: 26px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .pharmacist-info .title {
+            color: #86a486;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .pharmacist-info .experience {
+            color: #666;
+            font-size: 16px;
+            background: rgba(134, 164, 134, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .credentials {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(134, 164, 134, 0.2);
+        }
+
+        .credentials p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .services {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 800;
+            color: #2d4a2d;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 20px;
+            color: #86a486;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #f8fcf8, #ffffff);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid rgba(134, 164, 134, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #86a486, #9bb49b);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(134, 164, 134, 0.15);
+            border-color: #86a486;
+        }
+
+        .service-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .service-card h3 {
+            color: #2d4a2d;
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .about {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #f8fcf8 0%, #e8f4e8 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #2d4a2d;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .about-text p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 900;
+            color: #86a486;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .experience-badge {
+            background: linear-gradient(135deg, #86a486, #9bb49b);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(134, 164, 134, 0.3);
+            transform: rotate(3deg);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-badge:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .experience-badge h3 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .experience-badge p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .contact {
+            padding: 80px 5%;
+            background: #2d4a2d;
+            color: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 800;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+            margin-right: 20px;
+            width: 40px;
+        }
+
+        .contact-details h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #9bb49b;
+        }
+
+        .contact-details p {
+            opacity: 0.9;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #9bb49b;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #9bb49b;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer {
+            background: #1a2e1a;
+            color: white;
+            padding: 40px 5% 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #9bb49b;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: #9bb49b;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #333;
-            font-size: 24px;
+            color: white;
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
-        .video-card:hover .play-icon {
-            transform: scale(1.1);
-            background: white;
+        .social-link:hover {
+            background: #86a486;
+            transform: translateY(-3px);
         }
 
-        .video-info {
-            padding: 20px;
-        }
-
-        .video-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: white;
-            line-height: 1.4;
-        }
-
-        .video-meta {
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
             color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        .channel-name {
-            color: #ff0066;
-            font-weight: 500;
-        }
-
-        /* Trending Section */
-        .trending {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .trending-item {
-            display: flex;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .trending-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding-left: 15px;
-            padding-right: 15px;
-        }
-
-        .trending-number {
-            font-size: 24px;
-            font-weight: 900;
-            background: linear-gradient(45deg, #ff0066, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-right: 20px;
-            width: 30px;
-        }
-
-        .trending-info h3 {
-            color: white;
-            margin-bottom: 5px;
-        }
-
-        .trending-info p {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -380,260 +617,506 @@
             }
         }
 
-        .video-card {
+        .service-card {
             animation: fadeInUp 0.6s ease forwards;
         }
 
-        .video-card:nth-child(2) { animation-delay: 0.1s; }
-        .video-card:nth-child(3) { animation-delay: 0.2s; }
-        .video-card:nth-child(4) { animation-delay: 0.3s; }
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-            }
-            
-            .content {
-                margin-left: 0;
-            }
-            
             .hero {
-                padding: 40px 20px;
+                grid-template-columns: 1fr;
+                padding: 100px 5% 60px;
+                text-align: center;
             }
-            
-            .hero h1 {
-                font-size: 32px;
+
+            .hero-content h1 {
+                font-size: 36px;
             }
-            
-            .videos-grid {
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">▶ YouTube</div>
-        
-        <div class="search-container">
-            <div class="search-icon">🔍</div>
-            <input type="text" class="search-bar" placeholder="Buscar videos, canales y más...">
-        </div>
-        
-        <div class="user-actions">
-            <button class="action-btn">📹</button>
-            <button class="action-btn">🔔</button>
-            <button class="action-btn">👤</button>
-        </div>
+        <div class="logo">Farmacia Nieto</div>
+        <nav class="nav-menu">
+            <a href="#inicio" class="nav-item">Inicio</a>
+            <a href="#servicios" class="nav-item">Servicios</a>
+            <a href="#nosotros" class="nav-item">Nosotros</a>
+            <a href="#contacto" class="nav-item">Contacto</a>
+        </nav>
+        <button class="contact-btn" onclick="window.open('https://wa.me/5492914327031?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios%20farmacéuticos', '_blank')">
+            💬 WhatsApp
+        </button>
     </header>
 
-    <div class="main-container">
-        <aside class="sidebar">
-            <div class="sidebar-section">
-                <div class="sidebar-title">Principal</div>
-                <div class="sidebar-item active">
-                    <span class="sidebar-icon">🏠</span>
-                    Inicio
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Tu camino hacia el bienestar</h1>
+                <p class="hero-subtitle">Elaboración Magistral Personalizada</p>
+                <p class="hero-description">
+                    Bajo la dirección técnica de Patricia Victoria Nieto, farmacéutica con una larga trayectoria, 
+                    te ofrecemos productos de calidad y una atención de excelencia personalizada para cuidar tu salud.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn-primary">Conocer Servicios</a>
+                    <a href="https://wa.me/5492914327031?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios%20farmacéuticos" class="btn-secondary" target="_blank">💬 WhatsApp</a>
                 </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">🔥</span>
-                    Tendencias
+            </div>
+            <div class="hero-image">
+                <div class="pharmacist-card">
+                    <div class="pharmacist-photo">
+                        <img src="https://via.placeholder.com/220x280/86a486/ffffff?text=Patricia+Nieto" alt="Patricia Victoria Nieto - Farmacéutica">
+                    </div>
+                    <div class="pharmacist-info">
+                        <h3>Patricia Victoria Nieto</h3>
+                        <p class="title">Farmacéutica - Directora Técnica</p>
+                        <div class="credentials">
+                            <p><strong>Matrícula Profesional:</strong> Colegio de Farmacéuticos</p>
+                            <p><strong>Especialidad:</strong> Elaboración Magistral</p>
+                            <p><strong>Formación:</strong> Universidad Nacional</p>
+                        </div>
+                        <p class="experience">Desde 1996 - 28 años de experiencia</p>
+                    </div>
                 </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">📺</span>
-                    Suscripciones
+            </div>
+        </section>
+
+        <section id="servicios" class="services">
+            <div class="scroll-reveal">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">
+                    Formulaciones personalizadas según las necesidades de cada paciente
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">💊</span>
+                    <h3>Medicina Ortomolecular</h3>
+                    <p>Tratamientos personalizados basados en el equilibrio molecular óptimo para restaurar la salud natural del organismo.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">✨</span>
+                    <h3>Dermocosmética</h3>
+                    <p>Productos especializados para el cuidado de la piel, formulados específicamente para cada tipo y necesidad.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🌿</span>
+                    <h3>Homeopatía</h3>
+                    <p>Preparaciones homeopáticas tradicionales elaboradas con los más altos estándares de calidad y pureza.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🔬</span>
+                    <h3>Alopatía</h3>
+                    <p>Medicamentos alopáticos preparados magistralmente según prescripción médica con máxima precisión.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🧘‍♀️</span>
+                    <h3>Fitoterapia</h3>
+                    <p>Tratamientos naturales a base de plantas medicinales, respaldados por la tradición y la ciencia moderna.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🌸</span>
+                    <h3>Florales</h3>
+                    <p>Esencias florales de Bach y otros sistemas para el equilibrio emocional y el bienestar integral.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🦠</span>
+                    <h3>Probióticos</h3>
+                    <p>Formulaciones probióticas específicas para restaurar y mantener el equilibrio de la flora intestinal.</p>
+                </div>
+                
+                <div class="service-card scroll-reveal">
+                    <span class="service-icon">🧬</span>
+                    <h3>Hormonas Bioidénticas</h3>
+                    <p>Terapias hormonales personalizadas con hormonas bioidénticas para el equilibrio hormonal natural.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="nosotros" class="about">
+            <div class="about-content">
+                <div class="about-text scroll-reveal">
+                    <h2>Acerca de Nosotros</h2>
+                    <p>
+                        Desde 1996, nos dedicamos a brindar soluciones farmacéuticas personalizadas. Bajo la dirección 
+                        técnica de Patricia Victoria Nieto, contamos con un equipo altamente capacitado que trabaja 
+                        incansablemente para ofrecer productos de calidad y una atención de excelencia.
+                    </p>
+                    <p>
+                        Nuestro personal amable y comprometido está listo para brindarte asesoramiento personalizado 
+                        y recomendaciones confiables, siempre pensando en cuidar tu salud y bienestar.
+                    </p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-number">28+</span>
+                            <span class="stat-label">Años de Experiencia</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Pacientes Satisfechos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual scroll-reveal">
+                    <div class="experience-badge">
+                        <h3>Desde 1996</h3>
+                        <p>Cuidando de ti de manera personalizada</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="contact-content">
+                <div class="contact-info scroll-reveal">
+                    <h2>Contactanos</h2>
+                    <p style="margin-bottom: 40px; font-size: 18px; opacity: 0.9;">
+                        Para más asesoramiento y consultas, comunicate con nosotros. 
+                        ¡Cuidamos de ti de manera personalizada!
+                    </p>
+                    
+                    <div class="contact-item" onclick="window.open('https://wa.me/5492914327031?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios%20farmacéuticos', '_blank')">
+                        <span class="contact-icon">📱</span>
+                        <div class="contact-details">
+                            <h4>WhatsApp</h4>
+                            <p>(+54) 291432-7031</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" onclick="window.open('mailto:farmacia.nieto@hotmail.com', '_blank')">
+                        <span class="contact-icon">✉️</span>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>farmacia.nieto@hotmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div class="contact-details">
+                            <h4>Ubicación</h4>
+                            <p>Bahía Blanca, Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item" onclick="window.open('https://instagram.com/farmacia.nieto', '_blank')">
+                        <span class="contact-icon">📷</span>
+                        <div class="contact-details">
+                            <h4>Instagram</h4>
+                            <p>@farmacia.nieto</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form scroll-reveal">
+                    <form>
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono" placeholder="Tu teléfono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="consulta">Consulta</label>
+                            <textarea id="consulta" name="consulta" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary" style="width: 100%;">
+                            Enviar Consulta
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Farmacia Nieto</h3>
+                <p>Tu camino hacia el bienestar desde 1996. Elaboración magistral personalizada con la más alta calidad.</p>
+                <div class="social-links">
+                    <a href="https://wa.me/5492914327031?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20servicios%20farmacéuticos" class="social-link" target="_blank">📱</a>
+                    <a href="mailto:farmacia.nieto@hotmail.com" class="social-link" target="_blank">✉️</a>
+                    <a href="https://instagram.com/farmacia.nieto" class="social-link" target="_blank">📷</a>
                 </div>
             </div>
             
-            <div class="sidebar-section">
-                <div class="sidebar-title">Biblioteca</div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">📚</span>
-                    Biblioteca
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">📜</span>
-                    Historial
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">⏰</span>
-                    Ver más tarde
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">👍</span>
-                    Videos que me gustan
-                </div>
+            <div class="footer-section">
+                <h3>Servicios</h3>
+                <p>Medicina Ortomolecular</p>
+                <p>Dermocosmética</p>
+                <p>Homeopatía</p>
+                <p>Fitoterapia</p>
+                <p>Probióticos</p>
+                <p>Hormonas Bioidénticas</p>
             </div>
             
-            <div class="sidebar-section">
-                <div class="sidebar-title">Explorar</div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">🎵</span>
-                    Música
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">🎮</span>
-                    Gaming
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">📰</span>
-                    Noticias
-                </div>
-                <div class="sidebar-item">
-                    <span class="sidebar-icon">⚽</span>
-                    Deportes
-                </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📱 (+54) 291432-7031</p>
+                <p>✉️ farmacia.nieto@hotmail.com</p>
+                <p>📷 @farmacia.nieto</p>
+                <p>📍 Bahía Blanca, Buenos Aires</p>
             </div>
-        </aside>
-
-        <main class="content">
-            <section class="hero">
-                <div class="hero-content">
-                    <h1>Descubre el Futuro del Video</h1>
-                    <p>Experimenta una nueva forma de consumir contenido con nuestra interfaz rediseñada</p>
-                    <button class="cta-button">Explorar Ahora</button>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title">Recomendado para ti</h2>
-                <div class="videos-grid">
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">Tutorial de Diseño Web Moderno</div>
-                            <div class="video-meta">
-                                <span class="channel-name">DesignPro</span>
-                                <span>1.2M visualizaciones</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">Las Mejores Tendencias Tech 2025</div>
-                            <div class="video-meta">
-                                <span class="channel-name">TechToday</span>
-                                <span>856K visualizaciones</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">Receta Fácil: Pasta Italiana</div>
-                            <div class="video-meta">
-                                <span class="channel-name">Cocina Fácil</span>
-                                <span>2.1M visualizaciones</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="video-card">
-                        <div class="video-thumbnail">
-                            <div class="play-icon">▶</div>
-                        </div>
-                        <div class="video-info">
-                            <div class="video-title">Viaje por Patagonia Argentina</div>
-                            <div class="video-meta">
-                                <span class="channel-name">Aventuras</span>
-                                <span>743K visualizaciones</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="trending">
-                <h2 class="section-title">Tendencias</h2>
-                <div class="trending-item">
-                    <div class="trending-number">1</div>
-                    <div class="trending-info">
-                        <h3>El Video Más Viral del Día</h3>
-                        <p>5.2M visualizaciones • hace 2 horas</p>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">2</div>
-                    <div class="trending-info">
-                        <h3>Breaking: Noticias Importantes</h3>
-                        <p>3.8M visualizaciones • hace 4 horas</p>
-                    </div>
-                </div>
-                <div class="trending-item">
-                    <div class="trending-number">3</div>
-                    <div class="trending-info">
-                        <h3>Nuevo Álbum Musical</h3>
-                        <p>2.9M visualizaciones • hace 6 horas</p>
-                    </div>
-                </div>
-            </section>
-        </main>
-    </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Farmacia Nieto. Todos los derechos reservados. | Diseñado con ❤️ para tu bienestar</p>
+        </div>
+    </footer>
 
     <script>
-        // Smooth scrolling and animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Header blur effect on scroll
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (window.scrollY > 50) {
-                    header.style.background = 'rgba(0, 0, 0, 0.98)';
-                } else {
-                    header.style.background = 'rgba(0, 0, 0, 0.95)';
+        // Smooth scrolling para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
+        });
 
-            // Search bar focus effect
-            const searchBar = document.querySelector('.search-bar');
-            searchBar.addEventListener('focus', function() {
-                this.parentElement.style.transform = 'scale(1.02)';
+        // Efecto de header al hacer scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Animaciones de scroll reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos con scroll-reveal
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.scroll-reveal');
+            revealElements.forEach(el => observer.observe(el));
+        });
+
+        // Manejo del formulario de contacto
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener datos del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const consulta = document.getElementById('consulta').value;
+            
+            // Crear mensaje para WhatsApp
+            const mensaje = `Hola, soy ${nombre}. 
+            
+📧 Email: ${email}
+📞 Teléfono: ${telefono}
+            
+Consulta: ${consulta}
+            
+¡Gracias!`;
+            
+            // Abrir WhatsApp con el mensaje
+            const whatsappURL = `https://wa.me/5492914327031?text=${encodeURIComponent(mensaje)}`;
+            window.open(whatsappURL, '_blank');
+            
+            // Mostrar mensaje de confirmación
+            alert('¡Gracias por tu consulta! Te redirigimos a WhatsApp para contactarnos directamente.');
+            
+            // Limpiar formulario
+            this.reset();
+        });
+
+        // Efectos hover para las tarjetas de servicios
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
-            searchBar.addEventListener('blur', function() {
-                this.parentElement.style.transform = 'scale(1)';
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
             });
+        });
 
-            // Video card hover effects
-            const videoCards = document.querySelectorAll('.video-card');
-            videoCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
+        // Efectos hover para la tarjeta de farmacéutica
+        const pharmacistCard = document.querySelector('.pharmacist-card');
+        if (pharmacistCard) {
+            pharmacistCard.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(0deg) scale(1.05)';
             });
-
-            // Sidebar item interactions
-            const sidebarItems = document.querySelectorAll('.sidebar-item');
-            sidebarItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    sidebarItems.forEach(i => i.classList.remove('active'));
-                    this.classList.add('active');
-                });
+            
+            pharmacistCard.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(-2deg) scale(1)';
             });
+        }
 
-            // CTA button interaction
-            const ctaButton = document.querySelector('.cta-button');
-            ctaButton.addEventListener('click', function() {
+        // Efectos hover para el badge de experiencia
+        const experienceBadge = document.querySelector('.experience-badge');
+        if (experienceBadge) {
+            experienceBadge.addEventListener('mouseenter', function() {
+                this.style.transform = 'rotate(0deg) scale(1.05)';
+            });
+            
+            experienceBadge.addEventListener('mouseleave', function() {
+                this.style.transform = 'rotate(3deg) scale(1)';
+            });
+        }
+
+        // Agregar efecto de loading a los botones
+        document.querySelectorAll('.btn-primary, .btn-secondary, .contact-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Efecto de click
                 this.style.transform = 'scale(0.95)';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
+                    this.style.transform = '';
                 }, 150);
             });
         });
+
+        // Efecto de escritura en el título principal (opcional)
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            function typing() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+            typing();
+        }
+
+        // Inicializar efecto de escritura cuando la página carga
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero-content h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                // Comentar la siguiente línea si no quieres el efecto de escritura
+                // typeWriter(heroTitle, originalText, 80);
+            }
+        });
+
+        // Manejo responsivo del menú (para futuras mejoras)
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            if (navMenu) {
+                navMenu.classList.toggle('active');
+            }
+        }
+
+        // Prevenir comportamiento por defecto en links externos
+        document.querySelectorAll('a[target="_blank"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // El comportamiento por defecto ya abre en nueva ventana
+                // Solo agregamos una pequeña pausa visual
+                this.style.opacity = '0.7';
+                setTimeout(() => {
+                    this.style.opacity = '1';
+                }, 200);
+            });
+        });
+
+        // Función para validar email
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Validación en tiempo real del formulario
+        document.getElementById('email').addEventListener('blur', function() {
+            const email = this.value;
+            if (email && !validateEmail(email)) {
+                this.style.borderColor = '#ff6b6b';
+                this.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
+            } else {
+                this.style.borderColor = '';
+                this.style.backgroundColor = '';
+            }
+        });
+
+        // Limpiar validación cuando el usuario empiece a escribir de nuevo
+        document.getElementById('email').addEventListener('input', function() {
+            this.style.borderColor = '';
+            this.style.backgroundColor = '';
+        });
+
+        console.log('🏥 Farmacia Nieto - Sitio web cargado correctamente');
+        console.log('📱 WhatsApp: +54 291432-7031');
+        console.log('✉️ Email: farmacia.nieto@hotmail.com');
+        console.log('📍 Ubicación: Bahía Blanca, Buenos Aires, Argentina');
     </script>
 </body>
 </html>

@@ -18,6 +18,7 @@
             overflow-x: hidden;
         }
 
+        /* Header */
         .header {
             position: fixed;
             top: 0;
@@ -48,10 +49,13 @@
             transform: scale(1.05);
         }
 
-        .logo::before {
-            content: "🏥";
-            margin-right: 10px;
-            font-size: 32px;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+            background-image: url('data:image/png;base64,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');
+            background-size: contain;
+            background-repeat: no-repeat;
         }
 
         .nav-menu {
@@ -93,6 +97,7 @@
             box-shadow: 0 8px 25px rgba(134, 164, 134, 0.4);
         }
 
+        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #f8fcf8 0%, #e8f4e8 100%);
             padding: 120px 5% 80px;
@@ -237,7 +242,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
+            object-position: center;
         }
 
         .pharmacist-info {
@@ -282,6 +287,7 @@
             margin-bottom: 5px;
         }
 
+        /* Services Section */
         .services {
             padding: 80px 5%;
             background: white;
@@ -364,6 +370,7 @@
             line-height: 1.6;
         }
 
+        /* About Section */
         .about {
             padding: 80px 5%;
             background: linear-gradient(135deg, #f8fcf8 0%, #e8f4e8 100%);
@@ -451,6 +458,7 @@
             opacity: 0.9;
         }
 
+        /* Contact Section */
         .contact {
             padding: 80px 5%;
             background: #2d4a2d;
@@ -544,6 +552,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* Footer */
         .footer {
             background: #1a2e1a;
             color: white;
@@ -606,25 +615,7 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .service-card {
-            animation: fadeInUp 0.6s ease forwards;
-        }
-
-        .service-card:nth-child(2) { animation-delay: 0.1s; }
-        .service-card:nth-child(3) { animation-delay: 0.2s; }
-        .service-card:nth-child(4) { animation-delay: 0.3s; }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -658,22 +649,14 @@
                 grid-template-columns: 1fr;
             }
         }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
-        }
-
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="logo">Farmacia Nieto</div>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            Farmacia Nieto
+        </div>
         <nav class="nav-menu">
             <a href="#inicio" class="nav-item">Inicio</a>
             <a href="#servicios" class="nav-item">Servicios</a>
@@ -702,7 +685,7 @@
             <div class="hero-image">
                 <div class="pharmacist-card">
                     <div class="pharmacist-photo">
-                        <img src="https://via.placeholder.com/220x280/86a486/ffffff?text=Patricia+Nieto" alt="Patricia Victoria Nieto - Farmacéutica">
+                        <img src="https://via.placeholder.com/220x280/86a486/ffffff?text=Patricia+Victoria+Nieto" alt="Patricia Victoria Nieto - Farmacéutica">
                     </div>
                     <div class="pharmacist-info">
                         <h3>Patricia Victoria Nieto</h3>
@@ -719,57 +702,55 @@
         </section>
 
         <section id="servicios" class="services">
-            <div class="scroll-reveal">
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <p class="section-subtitle">
-                    Formulaciones personalizadas según las necesidades de cada paciente
-                </p>
-            </div>
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">
+                Formulaciones personalizadas según las necesidades de cada paciente
+            </p>
             
             <div class="services-grid">
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">💊</span>
                     <h3>Medicina Ortomolecular</h3>
                     <p>Tratamientos personalizados basados en el equilibrio molecular óptimo para restaurar la salud natural del organismo.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">✨</span>
                     <h3>Dermocosmética</h3>
                     <p>Productos especializados para el cuidado de la piel, formulados específicamente para cada tipo y necesidad.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🌿</span>
                     <h3>Homeopatía</h3>
                     <p>Preparaciones homeopáticas tradicionales elaboradas con los más altos estándares de calidad y pureza.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🔬</span>
                     <h3>Alopatía</h3>
                     <p>Medicamentos alopáticos preparados magistralmente según prescripción médica con máxima precisión.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🧘‍♀️</span>
                     <h3>Fitoterapia</h3>
                     <p>Tratamientos naturales a base de plantas medicinales, respaldados por la tradición y la ciencia moderna.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🌸</span>
                     <h3>Florales</h3>
                     <p>Esencias florales de Bach y otros sistemas para el equilibrio emocional y el bienestar integral.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🦠</span>
                     <h3>Probióticos</h3>
                     <p>Formulaciones probióticas específicas para restaurar y mantener el equilibrio de la flora intestinal.</p>
                 </div>
                 
-                <div class="service-card scroll-reveal">
+                <div class="service-card">
                     <span class="service-icon">🧬</span>
                     <h3>Hormonas Bioidénticas</h3>
                     <p>Terapias hormonales personalizadas con hormonas bioidénticas para el equilibrio hormonal natural.</p>
@@ -779,7 +760,7 @@
 
         <section id="nosotros" class="about">
             <div class="about-content">
-                <div class="about-text scroll-reveal">
+                <div class="about-text">
                     <h2>Acerca de Nosotros</h2>
                     <p>
                         Desde 1996, nos dedicamos a brindar soluciones farmacéuticas personalizadas. Bajo la dirección 
@@ -803,7 +784,7 @@
                     </div>
                 </div>
                 
-                <div class="about-visual scroll-reveal">
+                <div class="about-visual">
                     <div class="experience-badge">
                         <h3>Desde 1996</h3>
                         <p>Cuidando de ti de manera personalizada</p>
@@ -814,7 +795,7 @@
 
         <section id="contacto" class="contact">
             <div class="contact-content">
-                <div class="contact-info scroll-reveal">
+                <div class="contact-info">
                     <h2>Contactanos</h2>
                     <p style="margin-bottom: 40px; font-size: 18px; opacity: 0.9;">
                         Para más asesoramiento y consultas, comunicate con nosotros. 
@@ -854,7 +835,7 @@
                     </div>
                 </div>
                 
-                <div class="contact-form scroll-reveal">
+                <div class="contact-form">
                     <form>
                         <div class="form-group">
                             <label for="nombre">Nombre Completo</label>
@@ -922,7 +903,7 @@
     </footer>
 
     <script>
-        // Smooth scrolling para navegación
+        // Navegación suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -936,7 +917,7 @@
             });
         });
 
-        // Efecto de header al hacer scroll
+        // Efecto header al hacer scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 100) {
@@ -948,58 +929,32 @@
             }
         });
 
-        // Animaciones de scroll reveal
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        // Observar elementos con scroll-reveal
-        document.addEventListener('DOMContentLoaded', function() {
-            const revealElements = document.querySelectorAll('.scroll-reveal');
-            revealElements.forEach(el => observer.observe(el));
-        });
-
-        // Manejo del formulario de contacto
+        // Formulario con WhatsApp
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Obtener datos del formulario
             const nombre = document.getElementById('nombre').value;
             const email = document.getElementById('email').value;
             const telefono = document.getElementById('telefono').value;
             const consulta = document.getElementById('consulta').value;
             
-            // Crear mensaje para WhatsApp
-            const mensaje = `Hola, soy ${nombre}. 
-            
+            const mensaje = `Hola, soy ${nombre}.
+
 📧 Email: ${email}
 📞 Teléfono: ${telefono}
-            
+
 Consulta: ${consulta}
-            
+
 ¡Gracias!`;
             
-            // Abrir WhatsApp con el mensaje
             const whatsappURL = `https://wa.me/5492914327031?text=${encodeURIComponent(mensaje)}`;
             window.open(whatsappURL, '_blank');
             
-            // Mostrar mensaje de confirmación
-            alert('¡Gracias por tu consulta! Te redirigimos a WhatsApp para contactarnos directamente.');
-            
-            // Limpiar formulario
+            alert('¡Gracias por tu consulta! Te redirigimos a WhatsApp.');
             this.reset();
         });
 
-        // Efectos hover para las tarjetas de servicios
+        // Efectos hover para tarjetas
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -1010,7 +965,7 @@ Consulta: ${consulta}
             });
         });
 
-        // Efectos hover para la tarjeta de farmacéutica
+        // Efectos para tarjeta de farmacéutica
         const pharmacistCard = document.querySelector('.pharmacist-card');
         if (pharmacistCard) {
             pharmacistCard.addEventListener('mouseenter', function() {
@@ -1022,98 +977,7 @@ Consulta: ${consulta}
             });
         }
 
-        // Efectos hover para el badge de experiencia
-        const experienceBadge = document.querySelector('.experience-badge');
-        if (experienceBadge) {
-            experienceBadge.addEventListener('mouseenter', function() {
-                this.style.transform = 'rotate(0deg) scale(1.05)';
-            });
-            
-            experienceBadge.addEventListener('mouseleave', function() {
-                this.style.transform = 'rotate(3deg) scale(1)';
-            });
-        }
-
-        // Agregar efecto de loading a los botones
-        document.querySelectorAll('.btn-primary, .btn-secondary, .contact-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Efecto de click
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = '';
-                }, 150);
-            });
-        });
-
-        // Efecto de escritura en el título principal (opcional)
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function typing() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-            typing();
-        }
-
-        // Inicializar efecto de escritura cuando la página carga
-        window.addEventListener('load', function() {
-            const heroTitle = document.querySelector('.hero-content h1');
-            if (heroTitle) {
-                const originalText = heroTitle.textContent;
-                // Comentar la siguiente línea si no quieres el efecto de escritura
-                // typeWriter(heroTitle, originalText, 80);
-            }
-        });
-
-        // Manejo responsivo del menú (para futuras mejoras)
-        function toggleMobileMenu() {
-            const navMenu = document.querySelector('.nav-menu');
-            if (navMenu) {
-                navMenu.classList.toggle('active');
-            }
-        }
-
-        // Prevenir comportamiento por defecto en links externos
-        document.querySelectorAll('a[target="_blank"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                // El comportamiento por defecto ya abre en nueva ventana
-                // Solo agregamos una pequeña pausa visual
-                this.style.opacity = '0.7';
-                setTimeout(() => {
-                    this.style.opacity = '1';
-                }, 200);
-            });
-        });
-
-        // Función para validar email
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
-        // Validación en tiempo real del formulario
-        document.getElementById('email').addEventListener('blur', function() {
-            const email = this.value;
-            if (email && !validateEmail(email)) {
-                this.style.borderColor = '#ff6b6b';
-                this.style.backgroundColor = 'rgba(255, 107, 107, 0.1)';
-            } else {
-                this.style.borderColor = '';
-                this.style.backgroundColor = '';
-            }
-        });
-
-        // Limpiar validación cuando el usuario empiece a escribir de nuevo
-        document.getElementById('email').addEventListener('input', function() {
-            this.style.borderColor = '';
-            this.style.backgroundColor = '';
-        });
-
-        console.log('🏥 Farmacia Nieto - Sitio web cargado correctamente');
+        console.log('⚕️ Farmacia Nieto - Sitio web cargado correctamente');
         console.log('📱 WhatsApp: +54 291432-7031');
         console.log('✉️ Email: farmacia.nieto@hotmail.com');
         console.log('📍 Ubicación: Bahía Blanca, Buenos Aires, Argentina');
